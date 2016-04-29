@@ -10,26 +10,11 @@ import java.io.PrintWriter;
 /**
  * @author bvanchuhov
  */
-public class HelloServlet extends HttpServlet {
-
-    public static final String PARAM_NAME = "name";
-    public static final String DEFAULT_NAME = "anonymous";
+public class WelcomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter(PARAM_NAME);
-
-        if (name == null) {
-            name = DEFAULT_NAME;
-        }
-
-        String helloMessage = helloMessage(name);
-
         PrintWriter writer = resp.getWriter();
-        writer.println(helloMessage);
-    }
-
-    private String helloMessage(String name) {
-        return "Hello, " + name;
+        writer.println("Welcome to our Awesome App");
     }
 }
